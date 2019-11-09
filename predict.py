@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
+from flask_cors import CORS
 import json
 import jsonify
 import csv
@@ -18,7 +19,7 @@ class StockChart(Resource):
             for rows in csvReader:
                 date = rows['Date']
                 data[date] = rows['Close']
-            return json.dumps(data, sort_keys=True)
+            return json.dumps(data,sort_keys=True)
 
 
 @app.route('/stockChart')
