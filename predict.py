@@ -7,7 +7,7 @@ import jsonify
 import csv
 
 app = Flask(__name__)
-api = Api(app)
+api = CORS(app)
 
 
 class StockChart(Resource):
